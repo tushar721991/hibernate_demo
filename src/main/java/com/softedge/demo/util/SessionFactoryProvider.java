@@ -5,7 +5,9 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.softedge.demo.model.Customer;
 import com.softedge.demo.model.Employee;
+import com.softedge.demo.model.Person;
 
 public class SessionFactoryProvider {
 
@@ -21,6 +23,8 @@ public class SessionFactoryProvider {
 				.configure().build();
 		sessionFactory = new MetadataSources(registry)
 				.addAnnotatedClass(Employee.class)
+				.addAnnotatedClass(Customer.class)
+				.addAnnotatedClass(Person.class)
 				.buildMetadata().buildSessionFactory();
 	}
 }
